@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class questao_04 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Digite o tamanho do lado do quadrado: ");
+        int n = scanner.nextInt();
+        
+        // Loop externo para as linhas
+        for (int i = 0; i < n; i++) {
+            // Loop interno para os asteriscos em cada linha
+            for (int j = 0; j < n; j++) {
+                System.out.print("*"); // Imprime o asterisco sem quebra de linha
+            }
+            System.out.println(); // Quebra a linha após imprimir n asteriscos
+        }
+        
+        scanner.close();
+    }
+}
