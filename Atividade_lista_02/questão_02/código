@@ -1,0 +1,13 @@
+//imprima os números pares de 0 a 20
+
+public class questao_02 {
+    public static void main(String[] args) {
+
+//inicia com i igual a 0, informa que i tem q ser igual ou menor q 20 e incrementa 2 em 2 unidades
+
+for(int i=0; i <=20; i += 2){
+
+    System.out.println ("Número " + i);
+    }
+}
+}
