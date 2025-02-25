@@ -1,0 +1,284 @@
+
+// Questão 1: Classe Base (Animal)
+abstract class Animal {
+    protected String nome;
+    
+    public Animal(String nome) {
+        this.nome = nome;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+    
+    public abstract void emitirSom();
+}
+// Explicação: Criamos a classe abstrata Animal com um atributo nome e um método abstrato emitirSom().
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Questão 2: Classe Derivada (Mamifero)
+class Mamifero extends Animal {
+    protected String tipoPelo;
+    
+    public Mamifero(String nome, String tipoPelo) {
+        super(nome);
+        this.tipoPelo = tipoPelo;
+    }
+    
+    @Override
+    public void emitirSom() {
+        System.out.println("Som de mamífero");
+    }
+}
+// Explicação: Criamos Mamifero que herda Animal e implementamos emitirSom().
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Questão 3: Classe Derivada (Cachorro)
+class Cachorro extends Mamifero {
+    private String raca;
+    
+    public Cachorro(String nome, String tipoPelo, String raca) {
+        super(nome, tipoPelo);
+        this.raca = raca;
+    }
+    
+    @Override
+    public void emitirSom() {
+        System.out.println("Au Au!");
+    }
+}
+// Explicação: Criamos Cachorro herdando Mamifero e sobrescrevemos emitirSom().
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Questão 4: Interface (Domesticavel)
+interface Domesticavel {
+    void executarComando(String comando);
+}
+// Explicação: Criamos a interface Domesticavel com um método executarComando().
+
+-----------------------------------------------------------------------------------------------------------------------------------------+
+
+// Questão 5: Implementação de Interface (Cachorro)
+class Cachorro extends Mamifero implements Domesticavel {
+    private String raca;
+    
+    public Cachorro(String nome, String tipoPelo, String raca) {
+        super(nome, tipoPelo);
+        this.raca = raca;
+    }
+    
+    @Override
+    public void emitirSom() {
+        System.out.println("Au Au!");
+    }
+    
+    @Override
+    public void executarComando(String comando) {
+        System.out.println(nome + " está executando o comando: " + comando);
+    }
+}
+// Explicação: Cachorro agora implementa Domesticavel.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Questão 6: Classe Separada (Robo)
+class Robo implements Domesticavel {
+    private String id;
+    
+    public Robo(String id) {
+        this.id = id;
+    }
+    
+    public String getId() {
+        return id;
+    }
+    
+    @Override
+    public void executarComando(String comando) {
+        System.out.println("Robo " + id + " está executando o comando: " + comando);
+    }
+}
+// Explicação: Criamos Robo que implementa Domesticavel.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Questão 7: Polimorfismo
+public class Main {
+    public static void main(String[] args) {
+        Domesticavel[] domesticaveis = { new Cachorro("Rex", "Curto", "Labrador"), new Robo("X100") };
+        
+        for (Domesticavel d : domesticaveis) {
+            d.executarComando("Sentar");
+        }
+    }
+}
+// Explicação: Criamos um array de Domesticavel e iteramos chamando executarComando().
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Questão 8: Sobrescrita de Método
+override
+public String toString() {
+    return "Cachorro " + nome + ", raça " + raca + ", pelo " + tipoPelo;
+}
+// Explicação: Sobrescrevemos toString() para formatar a saída.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Questão 9: Classe Abstrata
+abstract class Animal {
+    protected String nome;
+    
+    public Animal(String nome) {
+        this.nome = nome;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+    
+    public abstract void emitirSom();
+    public abstract void movimentar();
+}
+
+class Mamifero extends Animal {
+    protected String tipoPelo;
+    
+    public Mamifero(String nome, String tipoPelo) {
+        super(nome);
+        this.tipoPelo = tipoPelo;
+    }
+    
+    @Override
+    public void emitirSom() {
+        System.out.println("Som de mamífero");
+    }
+    
+    @Override
+    public void movimentar() {
+        System.out.println("Mamífero se movendo");
+    }
+}
+
+class Robo implements Domesticavel {
+    private String id;
+    
+    public Robo(String id) {
+        this.id = id;
+    }
+    
+    public String getId() {
+        return id;
+    }
+    
+    @Override
+    public void executarComando(String comando) {
+        System.out.println("Robo " + id + " está executando o comando: " + comando);
+    }
+    
+    public void movimentar() {
+        System.out.println("Robo se movendo");
+    }
+}
+// Explicação: Adicionamos o método abstrato movimentar() em Animal e o implementamos nas classes derivadas.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+// Questão 10: Polimorfismo
+public void demonstrarDiferencas(Animal a, Domesticavel d) {
+    a.emitirSom();
+    if (d instanceof Robo) {
+        ((Robo) d).executarComando("Andar");
+    } else if (d instanceof Cachorro) {
+        ((Cachorro) d).executarComando("Pegar a bola");
+    }
+}
+// Explicação: Criamos um método para demonstrar diferenças entre Animal e Domesticavel.
+
+// Explicação Geral: Aplicamos conceitos de POO como herança, polimorfismo, interfaces e sobrescrita de métodos.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+10)
+package OLAVO;
+
+// Interface IVoador
+interface IVoador {
+    void Voar();
+}
+
+// Classe base Animal
+class Animal {
+    String Nome;
+
+    public void emitirSom() {
+        // Método a ser implementado nas subclasses
+    }
+}
+
+// Classe Mamifero que herda de Animal
+class Mamifero extends Animal {
+    // Implementações específicas para mamíferos podem ser adicionadas aqui
+}
+
+// Classe Morcego que herda de Mamifero e implementa IVoador
+class Morcego extends Mamifero implements IVoador {
+    @Override
+    public void emitirSom() {
+        System.out.println("O morcego " + Nome + " está emitindo um som!");
+    }
+
+    @Override
+    public void Voar() {
+        System.out.println("O morcego " + Nome + " está voando!");
+    }
+}
+
+// Classe Ave que herda de Animal e implementa IVoador
+class Ave extends Animal implements IVoador {
+    @Override
+    public void emitirSom() {
+        System.out.println("A ave " + Nome + " está cantando!");
+    }
+
+    @Override
+    public void Voar() {
+        System.out.println("A ave " + Nome + " está voando!");
+    }
+}
+
+// Classe principal
+public class Atv_010 {
+    Morcego MeuMorcego;
+    Ave MinhaAve;
+
+    public static void main(String[] args) {
+        Atv_010 q10 = new Atv_010();
+        q10.MinhaAve = new Ave();
+        q10.MeuMorcego = new Morcego();
+        
+        q10.MeuMorcego.Nome = "Stewart";
+        q10.MinhaAve.Nome = "Bartt";
+        
+        // Chamadas aos métodos Voar
+        q10.MeuMorcego.Voar();
+        q10.MinhaAve.Voar();
+        
+        // Criando um objeto do tipo Animal que é um Morcego
+        Animal Animal1 = new Morcego();
+        Animal1.Nome = "Pedrim";
+        Animal1.emitirSom(); // Chama o método emitirSom do Morcego
+        
+        // Criando objetos que implementam IVoador
+        IVoador Momorciego = new Morcego();
+        IVoador Avave = new Ave();
+        
+        // Chamadas aos métodos Voar
+        Avave.Voar();
+        Momorciego.Voar();
+    }
+}
